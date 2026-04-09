@@ -5,47 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Календарь работ - Лоза</title>
     <style>
-        body { background-color: #f4f7f4; font-family: 'Segoe UI', Arial, sans-serif; padding: 20px; color: #333; }
-        header { background-color: #2d5a27; color: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 25px; }
-        .back-btn { display: inline-block; margin-bottom: 20px; color: #2d5a27; text-decoration: none; font-weight: bold; border: 1px solid #2d5a27; padding: 8px 15px; border-radius: 8px; }
-        .back-btn:hover { background: #2d5a27; color: white; }
-        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 20px; border: 1px solid #e0e0e0; }
-        h2 { color: #2d5a27; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-top: 0; }
-        .status-box { background: #e8f5e9; padding: 15px; border-radius: 10px; border-left: 5px solid #2d5a27; }
-        .alert { background: #fff3e0; padding: 15px; border-radius: 10px; border-left: 5px solid #ff9800; margin-bottom: 15px; }
-        ul { line-height: 1.8; }
-        strong { color: #1b5e20; }
+        body { background-color: #f4f7f4; font-family: 'Segoe UI', sans-serif; padding: 15px; margin: 0; color: #333; font-size: 18px; }
+        header { background-color: #2d5a27; color: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 20px; }
+        .back-btn { display: inline-block; margin-bottom: 15px; color: #2d5a27; text-decoration: none; font-weight: bold; border: 1px solid #2d5a27; padding: 10px 15px; border-radius: 8px; }
+        .card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        h2 { color: #2d5a27; font-size: 1.3em; margin-top: 0; border-bottom: 2px solid #e8f5e9; padding-bottom: 8px; }
+        .task-list { list-style: none; padding: 0; }
+        .task-item { display: flex; align-items: flex-start; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed #eee; }
+        .task-item:last-child { border-bottom: none; }
+        .check-box { margin-right: 12px; font-size: 1.2em; cursor: pointer; }
+        .urgent { border-left: 5px solid #d32f2f; padding-left: 10px; background: #fff8f8; }
+        .done { color: #888; text-decoration: line-through; }
+        .date-badge { background: #2d5a27; color: white; padding: 2px 8px; border-radius: 5px; font-size: 0.8em; margin-right: 8px; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <a href="garden.html" class="back-btn">← Назад в меню</a>
+    <a href="garden.html" class="back-btn">← Меню сада</a>
 
     <header>
-        <h1>🗓️ КАЛЕНДАРЬ РАБОТ</h1>
+        <h1>🗓️ Календарь работ</h1>
     </header>
 
-    <div class="card">
-        <h2>📍 Текущий период: Апрель (Цветение)</h2>
-        <div class="alert">
-            <strong>ВНИМАНИЕ:</strong> Идет активное сокодвижение. Масштабную обрезку не проводим! Только удаление сухостоя.
-        </div>
-        <div class="status-box">
-            <ul>
-                <li><strong>Посадка:</strong> Завершаем высадку саженцев черешни, вишни и других культур.</li>
-                <li><strong>Полив:</strong> Критически важен для молодых деревьев и тех, что зацветают.</li>
-                <li><strong>Лунный фактор:</strong> Благоприятное время для укрепления корневой системы при пересадке.</li>
-            </ul>
+    <div class="card urgent">
+        <h2>🚀 Срочно сделать</h2>
+        <div class="task-list">
+            <div class="task-item">
+                <span class="check-box">⬜</span>
+                <div><strong>Полив:</strong> Проверить влажность почвы у молодых саженцев черешни (из-за ветра земля сохнет быстро).</div>
+            </div>
+            <div class="task-item">
+                <span class="check-box">⬜</span>
+                <div><strong>Вода 11.04:</strong> Подготовить шланги и краны к 12:00.</div>
+            </div>
         </div>
     </div>
 
     <div class="card">
-        <h2>✅ Рекомендуемые работы</h2>
-        <ul>
-            <li><strong>11.04.2026:</strong> Подготовка емкостей к приему поливной воды (с 12-00 до 14-00).</li>
-            <li><strong>Контроль:</strong> Проверка приживаемости почек на весенних прививках.</li>
-            <li><strong>Защита:</strong> Мониторинг ночных температур (защита цвета от заморозков).</li>
-        </ul>
+        <h2>📅 Рекомендуемые работы (Апрель)</h2>
+        <div class="task-list">
+            <div class="task-item">
+                <span class="date-badge">10-15.04</span>
+                <div>Мониторинг тли на молодых побегах. При появлении — обработка (после цветения!).</div>
+            </div>
+            <div class="task-item">
+                <span class="date-badge">15-20.04</span>
+                <div>Подкормка азотными удобрениями (если пропустили в марте).</div>
+            </div>
+            <div class="task-item">
+                <span class="date-badge">20-30.04</span>
+                <div>Подготовка грядок под теплолюбивые культуры (помидоры, перцы).</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="opacity: 0.8;">
+        <h2>✅ Сделано (Апрель)</h2>
+        <div class="task-list">
+            <div class="task-item done">
+                <span class="check-box">✔️</span>
+                <div>Высадка саженцев косточковых.</div>
+            </div>
+            <div class="task-item done">
+                <span class="check-box">✔️</span>
+                <div>Весенняя побелка и очистка стволов.</div>
+            </div>
+        </div>
     </div>
 
 </body>
