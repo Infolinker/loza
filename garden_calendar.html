@@ -13,10 +13,10 @@
         .task-list { list-style: none; padding: 0; }
         .task-item { display: flex; align-items: flex-start; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed #eee; }
         .task-item:last-child { border-bottom: none; }
-        .check-box { margin-right: 12px; font-size: 1.2em; cursor: pointer; }
+        .check-box { margin-right: 12px; font-size: 1.2em; }
         .urgent { border-left: 5px solid #d32f2f; padding-left: 10px; background: #fff8f8; }
-        .done { color: #888; text-decoration: line-through; }
         .date-badge { background: #2d5a27; color: white; padding: 2px 8px; border-radius: 5px; font-size: 0.8em; margin-right: 8px; font-weight: bold; }
+        .info-note { font-size: 0.9em; color: #666; font-style: italic; margin-top: 5px; }
     </style>
 </head>
 <body>
@@ -32,43 +32,41 @@
         <div class="task-list">
             <div class="task-item">
                 <span class="check-box">⬜</span>
-                <div><strong>Полив:</strong> Проверить влажность почвы у молодых саженцев черешни (из-за ветра земля сохнет быстро).</div>
+                <div><strong>Вода 11.04:</strong> Подготовить емкости и систему полива к 12:00.</div>
             </div>
             <div class="task-item">
                 <span class="check-box">⬜</span>
-                <div><strong>Вода 11.04:</strong> Подготовить шланги и краны к 12:00.</div>
+                <div><strong>Полив:</strong> Обильно пролить места, подготовленные под высадку.</div>
             </div>
         </div>
     </div>
 
     <div class="card">
-        <h2>📅 Рекомендуемые работы (Апрель)</h2>
+        <h2>✅ Рекомендуемые работы</h2>
         <div class="task-list">
             <div class="task-item">
+                <span class="date-badge">Сейчас</span>
+                <div>
+                    <strong>Высадка в грунт:</strong> Начинаем высадку основной рассады и саженцев. 
+                    <div class="info-note">Раз заморозков не предвидится, важно успеть, пока в почве еще есть весенняя влага.</div>
+                </div>
+            </div>
+            <div class="task-item">
                 <span class="date-badge">10-15.04</span>
-                <div>Мониторинг тли на молодых побегах. При появлении — обработка (после цветения!).</div>
+                <div><strong>Закалка:</strong> Если рассада была в тепле, выносим на воздух перед посадкой.</div>
             </div>
             <div class="task-item">
-                <span class="date-badge">15-20.04</span>
-                <div>Подкормка азотными удобрениями (если пропустили в марте).</div>
-            </div>
-            <div class="task-item">
-                <span class="date-badge">20-30.04</span>
-                <div>Подготовка грядок под теплолюбивые культуры (помидоры, перцы).</div>
+                <span class="date-badge">15.04+</span>
+                <div><strong>Мульчирование:</strong> После посадки замульчировать приствольные круги для сохранения влаги.</div>
             </div>
         </div>
     </div>
 
-    <div class="card" style="opacity: 0.8;">
-        <h2>✅ Сделано (Апрель)</h2>
+    <div class="card" style="opacity: 0.6;">
+        <h2>✔️ Выполнено</h2>
         <div class="task-list">
-            <div class="task-item done">
-                <span class="check-box">✔️</span>
-                <div>Высадка саженцев косточковых.</div>
-            </div>
-            <div class="task-item done">
-                <span class="check-box">✔️</span>
-                <div>Весенняя побелка и очистка стволов.</div>
+            <div style="color: #999; font-style: italic; text-align: center; padding: 10px;">
+                Список пуст. Пора заполнять новыми успехами!
             </div>
         </div>
     </div>
