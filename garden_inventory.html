@@ -3,39 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Химия и склад</title>
+    <title>Склад и Химия - Лоза</title>
     <style>
-        body { background-color: #f4f7f4; font-family: sans-serif; padding: 20px; line-height: 1.6; }
-        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 20px; border: 1px solid #ccc; }
-        h1 { color: #2d5a27; text-align: center; }
-        h2 { color: #2d5a27; border-bottom: 2px solid #2d5a27; padding-bottom: 5px; }
-        .box { background: #e8f5e9; padding: 15px; border-radius: 10px; margin-top: 10px; }
-        .back { display: inline-block; margin-bottom: 20px; color: #2d5a27; font-weight: bold; text-decoration: none; border: 1px solid #2d5a27; padding: 5px 10px; border-radius: 5px; }
+        body { background-color: #f4f7f4; font-family: 'Segoe UI', sans-serif; padding: 15px; margin: 0; font-size: 18px; }
+        header { background-color: #2e7d32; color: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 20px; }
+        .back-btn { display: inline-block; margin-bottom: 15px; color: #2e7d32; text-decoration: none; font-weight: bold; border: 1px solid #2e7d32; padding: 10px 15px; border-radius: 8px; }
+        
+        .section-title { color: #2e7d32; border-bottom: 2px solid #2e7d32; padding-bottom: 5px; margin: 25px 0 15px; font-size: 1.2em; }
+        
+        .inv-card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .inv-info { flex-grow: 1; }
+        .inv-name { font-weight: bold; display: block; color: #333; }
+        .inv-desc { font-size: 0.85em; color: #666; }
+        .inv-qty { background: #e8f5e9; color: #2e7d32; padding: 5px 12px; border-radius: 20px; font-weight: bold; font-size: 0.9em; min-width: 60px; text-align: center; margin-left: 10px; }
+        
+        .warning { color: #d32f2f; font-weight: bold; font-size: 0.8em; margin-top: 5px; display: block; }
+        .buy-btn { background: #fff3e0; color: #e65100; border: 1px dashed #e65100; padding: 10px; border-radius: 8px; text-align: center; margin-top: 10px; font-weight: bold; text-decoration: none; display: block; }
     </style>
 </head>
 <body>
-    <a href="garden.html" class="back">← Назад в меню</a>
-    <h1>📦 ХИМИЯ И СКЛАД</h1>
 
-    <div class="card">
-        <h2>🧪 Подкормка земли</h2>
-        <div class="box">
-            <strong>Весенний период (сейчас):</strong>
-            <ul>
-                <li><strong>Азот:</strong> Для роста (селитра, карбамид). Вносить во влажную землю.</li>
-                <li><strong>Древесная зола:</strong> Калий и раскисление почвы.</li>
-                <li><strong>Органика:</strong> Только перепревший перегной под перекопку.</li>
-            </ul>
+    <a href="garden.html" class="back-btn">← Меню сада</a>
+
+    <header>
+        <h1>📦 СКЛАД И ХИМИЯ</h1>
+    </header>
+
+    <div class="section-title">🧪 Удобрения (Питание)</div>
+    
+    <div class="inv-card">
+        <div class="inv-info">
+            <span class="inv-name">Нитроаммофоска (N-P-K)</span>
+            <span class="inv-desc">Универсальное для грядок и лунок.</span>
         </div>
+        <div class="inv-qty">~3 кг</div>
     </div>
 
-    <div class="card">
-        <h2>🐛 Защита растений</h2>
-        <ul>
-            <li><strong>До цветения:</strong> Медный купорос или Бордоская смесь.</li>
-            <li><strong>Во время цветения:</strong> Никакой химии! Бережем пчел.</li>
-            <li><strong>После цветения:</strong> Актара или Конфидор (от тли и вредителей).</li>
-        </ul>
+    <div class="inv-card">
+        <div class="inv-info">
+            <span class="inv-name">Аммиачная селитра</span>
+            <span class="inv-desc">Для азотной подкормки (старт роста).</span>
+        </div>
+        <div class="inv-qty">5 кг</div>
     </div>
+
+    <div class="section-title">🛡️ Защита (От вредителей/болезней)</div>
+
+    <div class="inv-card">
+        <div class="inv-info">
+            <span class="inv-name">Хорус / Скор</span>
+            <span class="inv-desc">От парши, монилиоза (для деревьев).</span>
+            <span class="warning">⚠️ Проверь срок годности!</span>
+        </div>
+        <div class="inv-qty">4 пак.</div>
+    </div>
+
+    <div class="inv-card">
+        <div class="inv-info">
+            <span class="inv-name">Актара</span>
+            <span class="inv-desc">От тли, колорадского жука. Системный препарат.</span>
+        </div>
+        <div class="inv-qty">2 пак.</div>
+    </div>
+
+    <div class="section-title">🛒 Нужно купить (Список)</div>
+    <div class="buy-btn">
+        📝 Докупить: Садовый вар, Медный купорос, Сетки для затенения.
+    </div>
+
 </body>
 </html>
