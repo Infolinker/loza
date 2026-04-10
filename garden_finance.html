@@ -5,47 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Финансы СТ - Лоза</title>
     <style>
-        body { background-color: #f0f4f8; font-family: 'Segoe UI', sans-serif; padding: 15px; margin: 0; font-size: 16px; line-height: 1.4; }
+        body { background-color: #f0f4f8; font-family: 'Segoe UI', sans-serif; padding: 15px; margin: 0; font-size: 16px; }
         header { background-color: #004d40; color: white; padding: 15px; border-radius: 15px; text-align: center; margin-bottom: 15px; }
         .back-btn { display: inline-block; margin-bottom: 10px; color: #004d40; text-decoration: none; font-weight: bold; border: 1px solid #004d40; padding: 8px 12px; border-radius: 8px; }
-        
-        /* Кнопки переключения (Табы) */
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 5px; }
-        .tab-btn { background: white; border: 1px solid #004d40; color: #004d40; padding: 10px; border-radius: 8px; font-size: 0.85em; font-weight: bold; white-space: nowrap; cursor: pointer; flex: 1; text-align: center; }
+        .tabs { display: flex; gap: 5px; margin-bottom: 15px; overflow-x: auto; }
+        .tab-btn { background: white; border: 1px solid #004d40; color: #004d40; padding: 10px; border-radius: 8px; font-size: 0.85em; font-weight: bold; cursor: pointer; flex: 1; text-align: center; min-width: 120px; }
         .tab-btn.active { background: #004d40; color: white; }
-
         .content-section { display: none; }
         .content-section.active { display: block; }
-
-        /* Карточки и строки */
         .report-card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 20px; border-top: 4px solid #004d40; }
-        .table-title { font-weight: bold; margin: 20px 0 10px; color: #004d40; border-bottom: 2px solid #004d40; font-size: 0.9em; }
         .fin-row { background: white; padding: 12px; border-radius: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; border: 1px solid #eee; border-left: 5px solid #388e3c; }
         .urgent { border-left-color: #d32f2f; background: #fff8f8; }
         
-        .info-box { background: #e3f2fd; padding: 10px; border-radius: 8px; font-size: 0.8em; border-left: 4px solid #1976d2; margin-top: 10px; }
-        .sum-val { font-weight: bold; white-space: nowrap; }
+        /* Стили для графика */
+        .chart-container { background: white; padding: 15px; border-radius: 12px; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .chart-bar-wrap { margin-bottom: 10px; }
+        .chart-label { font-size: 0.8em; margin-bottom: 4px; display: flex; justify-content: space-between; }
+        .chart-bg { background: #eee; height: 12px; border-radius: 6px; overflow: hidden; }
+        .chart-fill { background: #4caf50; height: 100%; border-radius: 6px; }
+        .chart-fill.high { background: #f44336; } /* Красный для пиковых месяцев */
     </style>
 </head>
 <body>
 
-    <a href="garden.html" class="back-btn">← Меню СТ</a>
+    <a href="garden.html" class="back-btn">← Назад</a>
 
-    <header>
-        <h1>📊 Касса СТ "Енергія-2011"</h1>
-    </header>
+    <header><h1>📊 Касса СТ "Енергія-2011"</h1></header>
 
     <div class="tabs">
-        <div class="tab-btn active" onclick="showTab('bills')">Официальные счета</div>
-        <div class="tab-btn" onclick="showTab('repair')">Ремонт</div>
+        <div class="tab-btn active" onclick="showTab('bills')">Счета за свет</div>
+        <div class="tab-btn" onclick="showTab('repair')">Благоустройство</div>
         <div class="tab-btn" onclick="showTab('fees')">Взносы</div>
     </div>
 
     <div id="bills" class="content-section active">
         <div class="report-card">
-            <div style="text-align: center; color: #666; font-size: 0.85em;">Текущий счет за Март:</div>
+            <div style="text-align: center; color: #666;">К оплате (Март):</div>
             <div style="text-align: center; font-size: 1.8em; font-weight: bold; color: #d32f2f;">27 781,92 ₴</div>
-            <div style="text-align: center; font-size: 0.75em; color: #888; margin-top: 5px;">Оплата до 13.04.2026</div>
         </div>
 
-        <div class="table-title">📅 График платежей 2026</div>
+        <div class="fin-row urgent">
+            <div><strong>Март 2026</strong><br><small>6 431 кВт·ч</small></div>
+            <div style="font-weight: bold; color: #d32f2f;">-27 781,92</div>
+        </div>
+        <div class="fin-row">
+            <div><strong>Февраль 2026</strong><br><small>6 969 кВт·ч</small></div>
+            <div>-30 106,08</div>
+        </div>
+        <div class="fin-row">
+            <div><strong>Январь 2026</strong><br><small>7 453 кВт·ч</small></div>
+            <div>-32 196,96</div>
+        </div>
+        <div class="fin-row" style="opacity: 0.7;">
+            <div><strong>Декабрь 2025</strong><br><small>6 251 кВт·ч</small></div>
+            <div>-27 004,32</div>
+        </div>
+        <div class="fin-row" style="opacity: 0.7;">
+            <div><strong>Октябрь 2025</strong><br><small>8 055 кВт·ч</small></div>
+            <div>-34 797,60</div>
+        </div>
+
+        <div class="chart-container">
+            <div style="font-weight: bold; font-size: 0.9em; margin-bottom: 15px; color: #004d40;">📉 Потребление энергии (кВт·ч):</div>
+            
+            <div class="chart-bar-wrap">
+                <div class="chart-label"><span>Октябрь 25</span> <span>8 055</span></div>
+                <div class="chart-bg"><div class="chart-fill high" style="width: 100%;"></div></div>
+            </div>
+
+            <div class="chart-bar-wrap">
+                <div class="chart-label"><span>Январь 26</span> <span>7 453</span></div>
+                <div class="chart-bg"><div class="chart-fill" style="width: 92%;"></div></div>
+            </div>
+
+            <div class="chart-bar-wrap">
+                <div class="chart-label"><span>Февраль 26</span> <span>6 969</span></div>
+                <div class="chart-bg"><div class="chart-fill" style="width: 86%;"></div></div>
+            </div>
+
+            <div class="chart-bar-wrap">
+                <div class="chart-label"><span>Март 26</span> <span>6 431</span></div>
+                <div class="chart-bg"><div class="chart-fill" style="width: 79%;"></div></div>
+            </div>
+
+            <div class="chart-bar-wrap">
+                <div class="chart-label"><span>Декабрь 25</span> <span>6 251</span></div>
+                <div class="chart-bg"><div class="chart-fill" style="width: 77%;"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="repair" class="content-section">
+        <div class="fin-row" style="border-left-color: #f9a825;"><div><strong>Замена крана</strong></div><div>-1 200 ₴</div></div>
+    </div>
+    <div id="fees" class="content-section">
+        <div class="report-card" style="border-top-color: #388e3c;"><div style="text-align: center;">Собрано: 65%</div></div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
