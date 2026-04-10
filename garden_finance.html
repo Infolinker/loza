@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Финансы СТ - Лоза</title>
     <style>
-        body { background-color: #f0f4f8; font-family: 'Segoe UI', sans-serif; padding: 15px; margin: 0; font-size: 16px; }
+        body { background-color: #f0f4f8; font-family: 'Segoe UI', sans-serif; padding: 15px; margin: 0; font-size: 16px; line-height: 1.4; }
         header { background-color: #004d40; color: white; padding: 15px; border-radius: 15px; text-align: center; margin-bottom: 15px; }
         .back-btn { display: inline-block; margin-bottom: 10px; color: #004d40; text-decoration: none; font-weight: bold; border: 1px solid #004d40; padding: 8px 12px; border-radius: 8px; }
         
-        /* Кнопки переключения */
+        /* Кнопки переключения (Табы) */
         .tabs { display: flex; gap: 5px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 5px; }
         .tab-btn { background: white; border: 1px solid #004d40; color: #004d40; padding: 10px; border-radius: 8px; font-size: 0.85em; font-weight: bold; white-space: nowrap; cursor: pointer; flex: 1; text-align: center; }
         .tab-btn.active { background: #004d40; color: white; }
@@ -17,10 +17,14 @@
         .content-section { display: none; }
         .content-section.active { display: block; }
 
+        /* Карточки и строки */
         .report-card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 20px; border-top: 4px solid #004d40; }
-        .fin-row { background: white; padding: 12px; border-radius: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; font-size: 0.9em; border: 1px solid #eee; }
-        .urgent { border-left: 5px solid #d32f2f; }
+        .table-title { font-weight: bold; margin: 20px 0 10px; color: #004d40; border-bottom: 2px solid #004d40; font-size: 0.9em; }
+        .fin-row { background: white; padding: 12px; border-radius: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; border: 1px solid #eee; border-left: 5px solid #388e3c; }
+        .urgent { border-left-color: #d32f2f; background: #fff8f8; }
+        
         .info-box { background: #e3f2fd; padding: 10px; border-radius: 8px; font-size: 0.8em; border-left: 4px solid #1976d2; margin-top: 10px; }
+        .sum-val { font-weight: bold; white-space: nowrap; }
     </style>
 </head>
 <body>
@@ -39,62 +43,9 @@
 
     <div id="bills" class="content-section active">
         <div class="report-card">
-            <div style="text-align: center; color: #666; font-size: 0.9em;">Общий долг за свет (март):</div>
+            <div style="text-align: center; color: #666; font-size: 0.85em;">Текущий счет за Март:</div>
             <div style="text-align: center; font-size: 1.8em; font-weight: bold; color: #d32f2f;">27 781,92 ₴</div>
+            <div style="text-align: center; font-size: 0.75em; color: #888; margin-top: 5px;">Оплата до 13.04.2026</div>
         </div>
-        
-        <div class="fin-row urgent">
-            <div>
-                <span style="font-size: 0.75em; color: #888;">Счет от 06.04.2026</span><br>
-                <strong>Электроэнергия (Общая)</strong><br>
-                <small>Запорожьеэлектроснабжение</small>
-            </div>
-            <div style="text-align: right; font-weight: bold; color: #d32f2f;">-27 781,92 ₴</div>
-        </div>
-        <div class="info-box">⚠️ Оплата строго до 13.04!</div>
-    </div>
 
-    <div id="repair" class="content-section">
-        <div class="fin-row" style="border-left: 5px solid #f9a825;">
-            <div>
-                <strong>Замена центрального крана</strong><br>
-                <small>Закупка материалов (латунь)</small>
-            </div>
-            <div style="text-align: right; font-weight: bold;">-1 200 ₴</div>
-        </div>
-        <div class="fin-row" style="border-left: 5px solid #f9a825;">
-            <div>
-                <strong>Подсыпка дороги (въезд)</strong><br>
-                <small>2 машины щебня</small>
-            </div>
-            <div style="text-align: right; font-weight: bold;">-4 000 ₴</div>
-        </div>
-    </div>
-
-    <div id="fees" class="content-section">
-        <div class="info-box" style="background: #f1f8e9; border-color: #4caf50;">
-            ✅ <strong>Статус сборов:</strong> На 10.04 собрано 65% членских взносов.
-        </div>
-        <div class="fin-row">
-            <span>Участки с задолженностью:</span>
-            <span style="color: #d32f2f; font-weight: bold;">14 участков</span>
-        </div>
-        <div style="font-size: 0.8em; color: #666; margin-top: 10px;">
-            * Список должников обновляется каждое воскресенье после заседания правления.
-        </div>
-    </div>
-
-    <script>
-        function showTab(tabId) {
-            // Убираем активный класс у всех кнопок и секций
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
-            
-            // Добавляем активный класс нужной кнопке и секции
-            event.currentTarget.classList.add('active');
-            document.getElementById(tabId).classList.add('active');
-        }
-    </script>
-
-</body>
-</html>
+        <div class="table-title">📅 График платежей 2026</div>
