@@ -3,34 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Финансы</title>
+    <title>Финансы СТ - Лоза</title>
     <style>
-        body { background-color: #f4f7f4; font-family: sans-serif; padding: 20px; text-align: center; }
-        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 500px; margin: 0 auto; }
-        .btn { background: #1976d2; color: white; padding: 10px 20px; border-radius: 8px; cursor: pointer; display: inline-block; margin-top: 10px; font-weight: bold; }
-        #preview { max-width: 100%; margin-top: 20px; display: none; border: 2px solid #ccc; }
-        .back { display: block; margin-bottom: 20px; color: #1976d2; text-decoration: none; font-weight: bold; }
+        body { background-color: #f0f4f8; font-family: 'Segoe UI', sans-serif; padding: 15px; margin: 0; font-size: 18px; }
+        header { background-color: #004d40; color: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 20px; }
+        .back-btn { display: inline-block; margin-bottom: 15px; color: #004d40; text-decoration: none; font-weight: bold; border: 1px solid #004d40; padding: 8px 15px; border-radius: 8px; }
+        
+        .report-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .stat-item { background: #f1f8e9; padding: 10px; border-radius: 8px; text-align: center; }
+        .stat-label { font-size: 0.7em; color: #666; text-transform: uppercase; }
+        .stat-val { font-weight: bold; color: #2e7d32; }
+        
+        .table-title { font-weight: bold; margin: 20px 0 10px; color: #004d40; border-bottom: 2px solid #004d40; }
+        .fin-row { background: white; padding: 12px; border-radius: 8px; margin-bottom: 5px; display: flex; justify-content: space-between; font-size: 0.9em; border: 1px solid #eee; }
+        .fee-status { font-size: 0.8em; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+        .paid { background: #c8e6c9; color: #2e7d32; }
+        .debt { background: #ffccbc; color: #d84315; }
     </style>
 </head>
 <body>
-    <a href="garden.html" class="back">← Назад в меню</a>
-    <h1>💰 ФИНАНСОВАЯ ОТЧЕТНОСТЬ</h1>
-    <div class="card">
-        <p>Выберите фото чека для просмотра:</p>
-        <label class="btn">
-            📂 ОТКРЫТЬ ЧЕК
-            <input type="file" style="display:none" accept="image/*" onchange="loadFile(event)">
-        </label>
-        <img id="preview">
-        <p style="font-size: 0.8em; color: #666; margin-top: 10px;">(Администрация)</p>
+
+    <a href="garden.html" class="back-btn">← Меню СТ</a>
+
+    <header>
+        <h1>📊 Касса Товарищества</h1>
+    </header>
+
+    <div class="report-card">
+        <div style="text-align: center; color: #666;">Текущий баланс СТ:</div>
+        <div style="text-align: center; font-size: 2.2em; font-weight: bold; color: #004d40;">45 200 ₴</div>
+        
+        <div class="stat-grid">
+            <div class="stat-item">
+                <div class="stat-label">Собрано взносов</div>
+                <div class="stat-val">85%</div>
+            </div>
+            <div class="stat-item" style="background: #fff3e0;">
+                <div class="stat-label">Долг по свету</div>
+                <div class="stat-val" style="color: #e65100;">12 400 ₴</div>
+            </div>
+        </div>
     </div>
 
-    <script>
-      var loadFile = function(event) {
-        var output = document.getElementById('preview');
-        output.src = URL.createObjectURL(event.target.files[0]);
-        output.style.display = 'block';
-      };
-    </script>
+    <div class="table-title">📢 Целевые расходы (Апрель)</div>
+    <div class="fin-row">
+        <span>Ремонт насоса (центральный)</span>
+        <span style="font-weight: bold;">-5 600 ₴</span>
+    </div>
+    <div class="fin-row">
+        <span>Оплата электроэнергии (общая)</span>
+        <span style="font-weight: bold;">-18 200 ₴</span>
+    </div>
+    <div class="fin-row">
+        <span>Вывоз мусора</span>
+        <span style="font-weight: bold;">-2 100 ₴</span>
+    </div>
+
+    <div class="table-title">📌 Информация по участкам</div>
+    <div class="fin-row">
+        <span>Участок №18 (Арк)</span>
+        <span class="fee-status paid">ОПЛАЧЕНО</span>
+    </div>
+    <div class="fin-row">
+        <span>Участок №19</span>
+        <span class="fee-status debt">ДОЛГ: 450 ₴</span>
+    </div>
+
 </body>
 </html>
