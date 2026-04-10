@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Финансы СТ - Лоза</title>
     <style>
-        body { background-color: #f0f4f8; font-family: 'Segoe UI', sans-serif; padding: 15px; margin: 0; font-size: 18px; }
-        header { background-color: #004d40; color: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 20px; }
-        .back-btn { display: inline-block; margin-bottom: 15px; color: #004d40; text-decoration: none; font-weight: bold; border: 1px solid #004d40; padding: 8px 15px; border-radius: 8px; }
-        .report-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; }
-        .table-title { font-weight: bold; margin: 20px 0 10px; color: #004d40; border-bottom: 2px solid #004d40; }
-        .fin-row { background: white; padding: 12px; border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; font-size: 0.9em; border: 1px solid #eee; border-left: 5px solid #d32f2f; }
-        .info-box { background: #e3f2fd; padding: 10px; border-radius: 8px; font-size: 0.8em; margin-top: 10px; border-left: 4px solid #1976d2; }
+        body { background-color: #f0f4f8; font-family: 'Segoe UI', sans-serif; padding: 15px; margin: 0; font-size: 16px; }
+        header { background-color: #004d40; color: white; padding: 15px; border-radius: 15px; text-align: center; margin-bottom: 15px; }
+        .back-btn { display: inline-block; margin-bottom: 10px; color: #004d40; text-decoration: none; font-weight: bold; border: 1px solid #004d40; padding: 8px 12px; border-radius: 8px; }
+        
+        /* Кнопки переключения */
+        .tabs { display: flex; gap: 5px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 5px; }
+        .tab-btn { background: white; border: 1px solid #004d40; color: #004d40; padding: 10px; border-radius: 8px; font-size: 0.85em; font-weight: bold; white-space: nowrap; cursor: pointer; flex: 1; text-align: center; }
+        .tab-btn.active { background: #004d40; color: white; }
+
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+
+        .report-card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 20px; border-top: 4px solid #004d40; }
+        .fin-row { background: white; padding: 12px; border-radius: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; font-size: 0.9em; border: 1px solid #eee; }
+        .urgent { border-left: 5px solid #d32f2f; }
+        .info-box { background: #e3f2fd; padding: 10px; border-radius: 8px; font-size: 0.8em; border-left: 4px solid #1976d2; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -19,36 +28,73 @@
     <a href="garden.html" class="back-btn">← Меню СТ</a>
 
     <header>
-        <h1>📊 Касса Товарищества</h1>
+        <h1>📊 Касса СТ "Енергія-2011"</h1>
     </header>
 
-    <div class="report-card">
-        <div style="text-align: center; color: #666;">К оплате до 13.04.2026:</div>
-        <div style="text-align: center; font-size: 2.2em; font-weight: bold; color: #d32f2f;">27 781,92 ₴</div>
+    <div class="tabs">
+        <div class="tab-btn active" onclick="showTab('bills')">Официальные счета</div>
+        <div class="tab-btn" onclick="showTab('repair')">Ремонт</div>
+        <div class="tab-btn" onclick="showTab('fees')">Взносы</div>
     </div>
 
-    <div class="table-title">📢 Официальные счета (Март 2026)</div>
-    
-    <div class="fin-row">
-        <div style="flex-grow: 1;">
-            <span style="font-size: 0.8em; color: #888; display: block;">Счет № 62000451260319 от 06.04</span>
-            <strong style="color: #004d40;">Электроэнергия (Общий счет СТ)</strong>
-            <div style="font-size: 0.75em; color: #555; margin-top: 5px;">
-                • ООО "Запорожьеэлектроснабжение"<br>
-                • Объем: 6 431 кВт·час<br>
-                • Тариф: 3,60 грн/кВт (без НДС)
+    <div id="bills" class="content-section active">
+        <div class="report-card">
+            <div style="text-align: center; color: #666; font-size: 0.9em;">Общий долг за свет (март):</div>
+            <div style="text-align: center; font-size: 1.8em; font-weight: bold; color: #d32f2f;">27 781,92 ₴</div>
+        </div>
+        
+        <div class="fin-row urgent">
+            <div>
+                <span style="font-size: 0.75em; color: #888;">Счет от 06.04.2026</span><br>
+                <strong>Электроэнергия (Общая)</strong><br>
+                <small>Запорожьеэлектроснабжение</small>
             </div>
+            <div style="text-align: right; font-weight: bold; color: #d32f2f;">-27 781,92 ₴</div>
         </div>
-        <div style="text-align: right; min-width: 120px;">
-            <span style="font-weight: bold; color: #d32f2f;">-27 781,92 ₴</span>
+        <div class="info-box">⚠️ Оплата строго до 13.04!</div>
+    </div>
+
+    <div id="repair" class="content-section">
+        <div class="fin-row" style="border-left: 5px solid #f9a825;">
+            <div>
+                <strong>Замена центрального крана</strong><br>
+                <small>Закупка материалов (латунь)</small>
+            </div>
+            <div style="text-align: right; font-weight: bold;">-1 200 ₴</div>
+        </div>
+        <div class="fin-row" style="border-left: 5px solid #f9a825;">
+            <div>
+                <strong>Подсыпка дороги (въезд)</strong><br>
+                <small>2 машины щебня</small>
+            </div>
+            <div style="text-align: right; font-weight: bold;">-4 000 ₴</div>
         </div>
     </div>
 
-    <div class="info-box">
-        ℹ️ <strong>Информация для садоводов:</strong> <br>
-        Счет выставлен на ОСТ "Енергія-2011". В сумму включен НДС (4 630,32 ₴). <br>
-        Пожалуйста, сдавайте деньги вовремя, чтобы избежать отключения всего товарищества!
+    <div id="fees" class="content-section">
+        <div class="info-box" style="background: #f1f8e9; border-color: #4caf50;">
+            ✅ <strong>Статус сборов:</strong> На 10.04 собрано 65% членских взносов.
+        </div>
+        <div class="fin-row">
+            <span>Участки с задолженностью:</span>
+            <span style="color: #d32f2f; font-weight: bold;">14 участков</span>
+        </div>
+        <div style="font-size: 0.8em; color: #666; margin-top: 10px;">
+            * Список должников обновляется каждое воскресенье после заседания правления.
+        </div>
     </div>
+
+    <script>
+        function showTab(tabId) {
+            // Убираем активный класс у всех кнопок и секций
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+            
+            // Добавляем активный класс нужной кнопке и секции
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
